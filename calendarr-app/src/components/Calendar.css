@@ -1,0 +1,230 @@
+@keyframes coolGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1.1); box-shadow: 0 0 10px #00e5ff; }
+  50% { transform: scale(1.15); box-shadow: 0 0 20px #00e5ff; }
+  100% { transform: scale(1.1); box-shadow: 0 0 10px #00e5ff; }
+}
+
+/* Full screen gradient background */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  background-size: 400% 400%;
+  animation: coolGradient 12s ease infinite;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main container */
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  max-width: 1000px;
+  width: 95%;
+  height: 90vh;
+  box-sizing: border-box;
+}
+
+/* Left calendar panel */
+.calendar-panel {
+  flex: 1;
+  background: #1e1e2f;
+  border-radius: 15px;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Calendar title */
+.calendar-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 0 0 5px #000;
+}
+
+/* Month/year header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c2f4a;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.calendar-header select, .calendar-header button {
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  background: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Calendar table */
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  color: #fff;
+  flex: 1;
+}
+
+th {
+  background: #3f4a7c;
+  padding: 10px;
+  font-weight: normal;
+  color: #dcdcdc;
+}
+
+td {
+  padding: 10px;
+  background-color: #2a2e50;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Hover effect */
+td:hover {
+  background-color: #4fc3f7;
+  cursor: pointer;
+}
+
+/* Today highlight */
+.today {
+  background: #ff9800;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+/* ✅ Enhanced Highlight for Event Days */
+.event-day {
+  background: linear-gradient(135deg, #00e5ff, #00c853);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00e5ff, 0 0 15px #00c853;
+  transform: scale(1.15);
+  animation: pulse 2s infinite;
+  transition: all 0.3s ease;
+}
+
+/* Right-side event panel */
+.event-panel {
+  flex: 1;
+  background: #161824;
+  border-radius: 15px;
+  padding: 1rem;
+  color: white;
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* Event heading */
+.event-panel h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #8fbcbb;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+}
+
+/* Event list */
+.event-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.event-panel li {
+  background: #2196f3;
+  color: white;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.event-panel li:hover {
+  transform: translateY(-3px);
+}
+
+.event {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  color: #e0f7fa;
+}
+
+/* ✅ Add Event Form */
+.add-form {
+  background-color: #2c2f4a;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+}
+
+.add-form h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #8fbcbb;
+}
+
+.add-form input {
+  width: 100%;
+  height: 42px;
+  margin-bottom: 1rem;
+  padding: 0 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #2e3440;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-form input:focus {
+  outline: none;
+  border-color: #8fbcbb;
+  box-shadow: 0 0 5px rgba(143, 188, 187, 0.5);
+}
+
+/* ✅ Add Event Button */
+.add-form button {
+  width: 100%;
+  height: 42px;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-form button:hover {
+  background-color: #45a049;
+}

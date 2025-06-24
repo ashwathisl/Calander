@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes coolGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  @apply m-0 h-screen overflow-hidden flex justify-center items-center font-sans;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  background-size: 400% 400%;
+  animation: coolGradient 12s ease infinite;
+}
